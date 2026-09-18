@@ -31,6 +31,11 @@ with app.app_context():
     try:
         db.engine.connect()
         print("✅ Database Connected Successfully!")
+
+        # Create database tables if they do not exist
+        db.create_all()
+        print("✅ Database Tables Ready!")
+
     except Exception as e:
         print("❌ Database Connection Failed!")
         print(e)
