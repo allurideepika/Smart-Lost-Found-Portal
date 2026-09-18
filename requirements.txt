@@ -20,5 +20,5 @@ torchvision
 transformers
 Pillow
 numpy
-
+python-dotenv
 gunicorn
