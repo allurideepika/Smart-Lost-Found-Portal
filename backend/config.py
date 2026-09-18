@@ -15,11 +15,19 @@ class Config:
 
     DATABASE_URL = os.environ.get("DATABASE_URL")
 
+    # Convert MySQL URL to PyMySQL URL
     if DATABASE_URL and DATABASE_URL.startswith("mysql://"):
         DATABASE_URL = DATABASE_URL.replace(
             "mysql://",
             "mysql+pymysql://",
             1
+        )
+
+    # Aiven requires SSL
+    if DATABASE_URL and "ssl-mode=REQUIRED" in DATABASE_URL:
+        DATABASE_URL = DATABASE_URL.replace(
+            "?ssl-mode=REQUIRED",
+            "?ssl_check_hostname=false"
         )
 
     SQLALCHEMY_DATABASE_URI = DATABASE_URL
