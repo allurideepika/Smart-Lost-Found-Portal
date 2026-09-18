@@ -12,6 +12,7 @@ itsdangerous==2.2.0
 greenlet==3.2.3
 Mako==1.3.10
 alembic==1.18.5
+cryptography
 colorama==0.4.6
 typing_extensions==4.16.0
 python-dotenv
