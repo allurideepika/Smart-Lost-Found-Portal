@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Pending Claims</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+    {% with messages = get_flashed_messages() %}
+{% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show m-3">
+
+        {{ message }}
+
+        <button
+        class="btn-close"
+        data-bs-dismiss="alert">
+        </button>
+
+    </div>
+
+    {% endfor %}
+
+{% endif %}
+{% endwith %}
+
+<div class="container py-5">
+
+<h2 class="mb-4">
+
+Pending Claims
+
+</h2>
+<input
+    type="text"
+    id="searchClaim"
+    class="form-control mb-3"
+    placeholder="Search by student or item...">
+
+<table class="table table-bordered">
+
+<thead>
+
+<tr>
+
+<th>Student</th>
+
+<th>Item</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for claim, item, user in claims %}
+
+<tr>
+
+<td>{{ user.name }}</td>
+
+<td>{{ item.item_name }}</td>
+
+<td>
+
+<span class="badge bg-warning">
+
+{{ claim.status }}
+
+</span>
+
+</td>
+
+<td>
+
+{% if claim.status == "Pending" %}
+
+    <a href="/admin/approve_claim/{{ claim.claim_id }}"
+       class="btn btn-success btn-sm">
+        Approve
+    </a>
+
+    <a href="/admin/reject_claim/{{ claim.claim_id }}"
+       class="btn btn-danger btn-sm">
+        Reject
+    </a>
+
+{% elif claim.status == "Approved" %}
+
+    <span class="badge bg-success">
+        Already Approved
+    </span>
+
+{% elif claim.status == "Rejected" %}
+
+    <span class="badge bg-danger">
+        Already Rejected
+    </span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+document.getElementById("searchClaim").addEventListener("keyup", function () {
+
+    let search = this.value.toLowerCase();
+
+    let rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(function(row){
+
+        if(row.innerText.toLowerCase().includes(search))
+            row.style.display = "";
+        else
+            row.style.display = "none";
+
+    });
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

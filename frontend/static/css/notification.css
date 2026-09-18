@@ -1,0 +1,124 @@
+body{
+    background:#f4f7fc;
+    font-family:'Poppins',sans-serif;
+}
+
+h2{
+    color:#2563EB;
+    font-weight:700;
+}
+
+/* Search Bar */
+
+#searchNotification{
+    border-radius:12px;
+    padding:12px;
+    border:1px solid #dbe3f0;
+}
+
+#searchNotification:focus{
+    box-shadow:0 0 10px rgba(37,99,235,.2);
+    border-color:#2563EB;
+}
+
+/* Dropdown */
+
+#filterNotification{
+    border-radius:12px;
+    padding:12px;
+    border:1px solid #dbe3f0;
+}
+
+/* Notification Card */
+
+.notification-item{
+
+    border-radius:18px !important;
+
+    transition:.3s ease;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+    overflow:hidden;
+
+}
+
+.notification-item:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+/* Left Border */
+
+.notification-item{
+
+    border-left:6px solid #2563EB !important;
+
+}
+
+/* Title */
+
+.notification-item h5{
+
+    font-weight:600;
+
+    color:#222;
+
+}
+
+/* Message */
+
+.notification-text{
+
+    color:#555;
+
+    font-size:15px;
+
+    margin-top:8px;
+
+    margin-bottom:0;
+
+}
+
+/* Date */
+
+.notification-item small{
+
+    color:#777;
+
+    text-align:right;
+
+    min-width:110px;
+
+}
+
+/* Empty State */
+
+.text-center i{
+
+    color:#b0b7c3;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.notification-item .d-flex{
+
+    flex-direction:column;
+
+}
+
+.notification-item small{
+
+    margin-top:15px;
+
+    text-align:left;
+
+}
+
+}

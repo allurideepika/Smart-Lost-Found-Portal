@@ -1,0 +1,115 @@
+/* ===================================
+   NAVBAR
+=================================== */
+
+.navbar {
+
+    background: #ffffff !important;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #E5E7EB;
+
+    z-index: 1000;
+
+}
+
+.navbar-brand {
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    color: #2563EB !important;
+
+}
+
+.navbar-brand img {
+
+    border-radius: 12px;
+
+}
+
+.navbar-nav .nav-link {
+
+    color: #374151;
+
+    font-weight: 500;
+
+    margin-left: 8px;
+
+    margin-right: 8px;
+
+    padding: 10px 16px !important;
+
+    border-radius: 12px;
+
+    transition: .3s ease;
+
+}
+
+.navbar-nav .nav-link:hover {
+
+    background: #DBEAFE;
+
+    color: #2563EB !important;
+
+}
+
+.navbar-nav .nav-link.active {
+
+    background: #2563EB;
+
+    color: white !important;
+
+}
+
+.navbar-nav .nav-link i {
+
+    margin-right: 6px;
+
+}
+
+.badge {
+
+    font-size: .65rem;
+
+}
+
+.btn-primary-custom {
+
+    min-width: 110px;
+
+}
+
+.navbar-toggler {
+
+    border: none;
+
+    box-shadow: none !important;
+
+}
+
+@media (max-width:991px){
+
+    .navbar-nav{
+
+        margin-top:20px;
+
+    }
+
+    .navbar-nav .nav-link{
+
+        margin:5px 0;
+
+    }
+
+    .btn-primary-custom{
+
+        width:100%;
+
+        margin-top:15px;
+
+    }
+
+}

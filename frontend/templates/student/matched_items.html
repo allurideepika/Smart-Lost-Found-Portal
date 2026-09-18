@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matched Items</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+<h2 class="mb-4">
+<i class="bi bi-check2-circle-fill text-success"></i>
+Matched Items
+</h2>
+
+{% if matches %}
+
+<div class="row">
+
+{% for match in matches %}
+
+<div class="col-md-6 mb-4">
+
+<div class="card shadow-sm">
+
+<div class="card-body">
+
+<div class="row">
+
+<div class="col-4">
+
+{% if match.lost_item.image %}
+
+<img
+src="{{ url_for('static', filename='assets/uploads/' + match.lost_item.image) }}"
+class="img-fluid rounded">
+
+{% else %}
+
+<p>No Image</p>
+
+{% endif %}
+
+</div>
+
+<div class="col-8">
+
+<h5>{{ match.lost_item.item_name }}</h5>
+
+<p><strong>Category:</strong> {{ match.lost_item.category }}</p>
+
+<p><strong>Lost At:</strong> {{ match.lost_item.location }}</p>
+
+<p><strong>Found At:</strong> {{ match.found_item.location }}</p>
+
+<p><strong>Confidence:</strong> {{ match.confidence }}%</p>
+
+<span class="badge bg-success">
+{{ match.status }}
+</span>
+
+<br><br>
+
+<a
+href="/student/claim/{{ match.lost_item.lost_id }}"
+class="btn btn-warning btn-sm">
+
+Claim Item
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="alert alert-info">
+
+No matched items found.
+
+</div>
+
+{% endif %}
+
+<a href="/student/dashboard" class="btn btn-primary mt-3">
+
+Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+
+</html>

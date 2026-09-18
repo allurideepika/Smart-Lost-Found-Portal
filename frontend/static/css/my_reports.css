@@ -1,0 +1,32 @@
+body{
+    background:#f4f7fc;
+    font-family:'Poppins',sans-serif;
+}
+
+h2{
+    color:#2563EB;
+    font-weight:700;
+}
+
+.card{
+    border-radius:20px;
+}
+
+.table th{
+    color:#2563EB;
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+.form-control,
+.form-select{
+    height:48px;
+    border-radius:12px;
+}
+
+.btn-primary{
+    height:48px;
+    border-radius:12px;
+}

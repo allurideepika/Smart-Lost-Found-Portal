@@ -1,0 +1,25 @@
+.content h2{
+    font-weight:700;
+    color:#1E3A8A;
+}
+
+.card{
+    border:none;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.form-control,
+.form-select{
+    height:48px;
+    border-radius:12px;
+}
+
+.table th{
+    color:#1E3A8A;
+    font-weight:600;
+}
+
+.btn-sm{
+    margin-right:8px;
+}

@@ -1,0 +1,30 @@
+.content h2{
+    color:#1E3A8A;
+    font-weight:700;
+}
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.form-control{
+
+    height:50px;
+
+    border-radius:12px;
+
+}
+
+.btn{
+
+    border-radius:12px;
+
+    padding:10px 25px;
+
+}

@@ -1,0 +1,82 @@
+/* ===========================
+   Footer
+=========================== */
+
+.portal-footer {
+    background: linear-gradient(135deg, #2563eb, #4f8cff);
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 70px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.portal-footer h4 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.portal-footer h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.portal-footer p {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.portal-footer ul {
+    padding: 0;
+    margin: 0;
+}
+
+.portal-footer ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.portal-footer ul li a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.portal-footer ul li a:hover {
+    color: #ffe082;
+    padding-left: 6px;
+}
+
+.portal-footer hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 30px 0 15px;
+}
+
+.portal-footer .text-center {
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+}
+
+/* Contact text */
+.portal-footer .contact p {
+    margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .portal-footer {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .portal-footer h4,
+    .portal-footer h5 {
+        margin-top: 20px;
+    }
+
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Matches</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="../../static/css/style.css">
+<link rel="stylesheet" href="../../static/css/admin_dashboard.css">
+
+</head>
+
+<body>
+
+<div class="d-flex">
+
+<div class="sidebar">
+
+<h3>Smart L&F</h3>
+
+<a href="/admin/dashboard">
+<i class="bi bi-speedometer2"></i> Dashboard
+</a>
+
+<a href="/admin/manage_users">
+<i class="bi bi-people"></i> Manage Users
+</a>
+
+<a href="/admin/manage_reports">
+<i class="bi bi-box-seam"></i> Manage Reports
+</a>
+
+<a href="/admin/matches" class="active">
+<i class="bi bi-search"></i> Matches
+</a>
+
+<a href="/admin/claims">
+<i class="bi bi-file-earmark-check"></i> Claims
+</a>
+
+<a href="/logout">
+<i class="bi bi-box-arrow-right"></i> Logout
+</a>
+
+</div>
+
+<div class="content container mt-4">
+
+<h2 class="mb-4">
+
+AI Possible Matches
+
+</h2>
+
+{% if matched_items %}
+
+<table class="table table-bordered table-striped align-middle">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Lost Item</th>
+
+<th>Found Item</th>
+
+<th>Confidence</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for match, lost, found in matched_items %}
+
+<tr>
+
+<td>
+
+{% if lost.image %}
+<img src="{{ url_for('static', filename='assets/uploads/' + lost.image) }}"
+     width="100" class="rounded mb-2">
+{% else %}
+<span class="text-muted">No Image</span>
+{% endif %}
+
+<br>
+
+<b>{{ lost.item_name }}</b>
+
+<br>
+
+Owner : {{ lost.user.name }}
+
+<br>
+
+<small class="text-muted">
+    Lost Date :
+    {{ lost.lost_date.strftime('%d-%m-%Y') if lost.lost_date else '-' }}
+</small>
+</td>
+
+<td>
+
+<img
+src="{{ url_for('static', filename='assets/uploads/' + found.image) }}"
+width="100"
+class="rounded mb-2">
+
+<br>
+<b>{{ found.item_name }}</b>
+
+<br>
+
+Reported By :
+{{ found.user.name }}
+
+<br>
+
+<small class="text-muted">
+    Found Date :
+    {{ found.found_date.strftime('%d-%m-%Y') if found.found_date else '-' }}
+</small>
+
+</td>
+
+<td>
+
+<span class="badge bg-success fs-6">
+
+{{ match.confidence }} %
+
+</span>
+
+</td>
+
+<td>
+    {{ match.status }}
+</td>
+
+<td>
+
+{% if match.status == "Matched" %}
+
+<a href="/admin/notify_owner/{{ match.match_id }}"
+   class="btn btn-warning btn-sm">
+    <i class="bi bi-bell"></i>
+    Notify Owner
+</a>
+
+{% elif match.status == "Owner Notified" %}
+
+<a href="/admin/return_item/{{ match.match_id }}"
+   class="btn btn-success btn-sm">
+    <i class="bi bi-check-circle"></i>
+    Return Item
+</a>
+
+{% elif match.status == "Returned" %}
+
+<span class="badge bg-success">
+    Returned
+</span>
+
+{% else %}
+
+<span class="badge bg-secondary">
+    {{ match.status }}
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% else %}
+
+<div class="alert alert-info">
+
+No matched items found.
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

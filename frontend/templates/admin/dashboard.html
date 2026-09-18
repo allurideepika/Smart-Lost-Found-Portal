@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="../../static/css/style.css">
+<link rel="stylesheet" href="../../static/css/admin_dashboard.css">
+
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+{% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show m-3">
+
+        {{ message }}
+
+        <button
+        class="btn-close"
+        data-bs-dismiss="alert">
+        </button>
+
+    </div>
+
+    {% endfor %}
+
+{% endif %}
+{% endwith %}
+
+<div class="d-flex">
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <h3>Smart L&F</h3>
+
+    <a href="/admin/dashboard" class="active">
+        <i class="bi bi-speedometer2"></i>
+        Dashboard
+    </a>
+
+    <a href="/admin/manage_users">
+        <i class="bi bi-people"></i>
+        Manage Users
+    </a>
+
+    <a href="/admin/manage_reports">
+        <i class="bi bi-folder2-open"></i>
+        Manage Reports
+    </a>
+
+    <a href="/admin/matches">
+        <i class="bi bi-search"></i>
+        Matches
+    </a>
+
+    <a href="/admin/claims">
+        <i class="bi bi-file-earmark-check"></i>
+        Claims
+    </a>
+
+    <!--a href="/admin/settings">
+        <i class="bi bi-gear"></i>
+        Settings
+    </a-->
+
+    <a href="/logout">
+        <i class="bi bi-box-arrow-right"></i>
+        Logout
+    </a>
+
+</div>
+
+<!-- Main -->
+
+<div class="content">
+
+<h2>
+
+Admin Dashboard
+
+</h2>
+
+<div class="row g-4 mt-2">
+
+<div class="col-md-3">
+
+<div class="card stat">
+
+<h3>{{ total_lost }}</h3>
+
+<p>Lost Reports</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card stat">
+
+<h3>{{ total_found }}</h3>
+
+<p>Found Reports</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card stat">
+
+<h3>{{ total_matches }}</h3>
+
+<p>Matched</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card stat">
+
+<h3>{{ total_students }}</h3>
+
+<p>Students</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="card shadow p-3 mt-4">
+
+<h4>Recent Lost Reports</h4>
+
+<table class="table">
+
+<thead>
+
+<tr>
+
+<th>Item</th>
+
+<th>Student</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in recent_reports %}
+
+<tr>
+
+<td>{{ item.item_name }}</td>
+
+<td>{{ item.user.name }}</td>
+
+<td>{{ item.status }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="card mt-5 p-4">
+
+<h4>Recent Reports</h4>
+
+<table class="table">
+
+<thead>
+
+<tr>
+
+<th>Student</th>
+
+<th>Item</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% if recent_reports %}
+
+    {% for report in recent_reports %}
+
+    <tr>
+
+        <td>{{ report.user.name }}</td>
+
+        <td>{{ report.item_name }}</td>
+
+        <td>
+
+            {% if report.status == "Matched" %}
+
+                <span class="badge bg-success">
+                    {{ report.status }}
+                </span>
+
+            {% elif report.status == "Pending" %}
+
+                <span class="badge bg-warning">
+                    {{ report.status }}
+                </span>
+
+            {% else %}
+
+                <span class="badge bg-danger">
+                    {{ report.status }}
+                </span>
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+{% else %}
+
+<tr>
+
+    <td colspan="3" class="text-center">
+        No reports available.
+    </td>
+
+</tr>
+
+{% endif %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

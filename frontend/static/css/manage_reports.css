@@ -1,0 +1,39 @@
+.content h2{
+
+font-weight:700;
+
+color:#1E3A8A;
+
+}
+
+.card{
+
+border:none;
+
+border-radius:18px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.table th{
+
+color:#1E3A8A;
+
+font-weight:600;
+
+}
+
+.btn-sm{
+
+margin-right:8px;
+
+}
+
+.badge{
+
+padding:8px 12px;
+
+font-size:13px;
+
+}

@@ -1,0 +1,261 @@
+/* ===========================
+   LOGIN PAGE STYLES
+=========================== */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#F3EEFF;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+/* Login Card */
+
+.login-card{
+
+    width:100%;
+
+    max-width:500px;
+
+    background:#FFFFFF;
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:0 15px 45px rgba(168,130,255,.18);
+
+    animation:fadeUp .5s ease;
+
+}
+
+/* Logo */
+
+.logo-box{
+
+    width:95px;
+
+    height:95px;
+
+    margin:auto;
+
+    border-radius:24px;
+
+    background:#F7F3FF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.logo-box img{
+
+    width:60px;
+
+    height:auto;
+
+}
+
+/* Heading */
+
+h2{
+
+    font-weight:700;
+
+    color:#1E293B;
+
+}
+
+.portal-text{
+
+    color:#64748B;
+
+    margin-bottom:35px;
+
+}
+
+/* Labels */
+
+.form-label{
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* Inputs */
+
+.form-control,
+.form-select{
+
+    height:52px;
+
+    border-radius:14px;
+
+    border:1px solid #D8CCFF;
+
+    box-shadow:none;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#A78BFA;
+
+    box-shadow:0 0 0 .15rem rgba(167,139,250,.25);
+
+}
+
+/* Input Icons */
+
+.input-group-text{
+
+    background:#FFFFFF;
+
+    border:1px solid #D8CCFF;
+
+    border-right:none;
+
+    border-radius:14px 0 0 14px;
+
+}
+
+.input-group .form-control{
+
+    border-left:none;
+
+}
+
+.input-group .btn{
+
+    border-radius:0 14px 14px 0;
+
+}
+
+/* Login Button */
+
+.login-btn{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#7C6CF3;
+
+    color:#FFFFFF;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#6958E6;
+
+    transform:translateY(-2px);
+
+}
+
+/* Forgot Password */
+
+.forgot{
+
+    text-align:right;
+
+    margin-bottom:20px;
+
+}
+
+.forgot a{
+
+    text-decoration:none;
+
+    color:#7C6CF3;
+
+    font-size:.95rem;
+
+}
+
+.forgot a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* Footer */
+
+.footer-text{
+
+    margin-top:30px;
+
+    color:#64748B;
+
+    text-align:center;
+
+    font-size:.95rem;
+
+}
+
+/* Logo */
+
+.login-logo{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+}
+
+/* Mobile */
+
+@media(max-width:576px){
+
+    .login-card{
+
+        margin:20px;
+
+        padding:30px;
+
+    }
+
+    .logo-box{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    .logo-box img{
+
+        width:50px;
+
+    }
+
+}

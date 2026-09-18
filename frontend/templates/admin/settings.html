@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="../../static/css/style.css">
+<link rel="stylesheet" href="../../static/css/admin_dashboard.css">
+
+</head>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+{% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show m-3">
+
+        {{ message }}
+
+        <button
+        class="btn-close"
+        data-bs-dismiss="alert">
+        </button>
+
+    </div>
+
+    {% endfor %}
+
+{% endif %}
+{% endwith %}
+
+<div class="d-flex">
+
+<div class="sidebar">
+
+<h3>Smart L&F</h3>
+
+<a href="/admin/dashboard">
+<i class="bi bi-speedometer2"></i> Dashboard
+</a>
+
+<a href="/admin/manage_users">
+<i class="bi bi-people"></i> Manage Users
+</a>
+
+<a href="/admin/manage_reports">
+<i class="bi bi-box-seam"></i> Manage Reports
+</a>
+
+<a href="/admin/matches">
+<i class="bi bi-search"></i> Matches
+</a>
+
+<a href="/admin/claims">
+<i class="bi bi-file-earmark-check"></i> Claims
+</a>
+
+<!--a href="/admin/settings" class="active">
+<i class="bi bi-gear"></i> Settings
+</a-->
+
+<a href="/logout">
+<i class="bi bi-box-arrow-right"></i> Logout
+</a>
+
+</div>
+
+<div class="content p-4">
+
+<h2 class="mb-4">System Settings</h2>
+
+<div class="card p-4 shadow">
+
+<h4>Smart Lost & Found Portal</h4>
+
+<hr>
+
+<p><strong>System Version:</strong> 1.0</p>
+
+<p><strong>Framework:</strong> Flask</p>
+
+<p><strong>Database:</strong> MySQL</p>
+
+<p><strong>Admin:</strong> {{ session["name"] }}</p>
+
+<p><strong>Status:</strong>
+<span class="badge bg-success">Online</span>
+</p>
+
+</div>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

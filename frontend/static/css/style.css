@@ -1,0 +1,378 @@
+@import url("variables.css");
+/* ================================
+   SMART LOST & FOUND PORTAL
+   GLOBAL STYLES
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+    --primary:#2563EB;
+    --primary-dark:#1E40AF;
+    --primary-light:#DBEAFE;
+
+    --success:#22C55E;
+    --warning:#FACC15;
+    --danger:#EF4444;
+    --info:#3B82F6;
+
+    --white:#FFFFFF;
+
+    --background:#F5F7FB;
+
+    --text:#1F2937;
+    --text-light:#6B7280;
+
+    --border:#E5E7EB;
+
+    --shadow:
+        0 8px 30px rgba(0,0,0,.06);
+
+    --radius:18px;
+
+    --transition:.3s ease;
+}
+
+
+/* ==========================
+        RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+
+/* ==========================
+        LINKS
+========================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+/* ==========================
+        IMAGES
+========================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+
+/* ==========================
+        CONTAINER
+========================== */
+
+.container-custom{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+
+/* ==========================
+        CARDS
+========================== */
+
+.card-custom{
+
+    background:var(--white);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    border:none;
+
+    transition:var(--transition);
+
+}
+
+.card-custom:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/* ==========================
+        BUTTONS
+========================== */
+
+.btn-primary-custom{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:12px 28px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.btn-primary-custom:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+
+.btn-outline-custom{
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:11px 28px;
+
+    transition:var(--transition);
+
+}
+
+.btn-outline-custom:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+/* ==========================
+        INPUTS
+========================== */
+
+.form-control{
+
+    border-radius:14px !important;
+
+    min-height:52px;
+
+    border:1px solid var(--border);
+
+    box-shadow:none !important;
+
+}
+
+.form-select{
+
+    border-radius:14px !important;
+
+    min-height:52px;
+
+    box-shadow:none !important;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--primary);
+
+}
+
+
+/* ==========================
+        BADGES
+========================== */
+
+.badge-pending{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+}
+
+.badge-matched{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+}
+
+.badge-collected{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================
+        ICON BOX
+========================== */
+
+.icon-box{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-size:28px;
+
+}
+
+
+/* ==========================
+        SHADOW
+========================== */
+
+.shadow-soft{
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* ==========================
+        SECTION
+========================== */
+
+.section{
+
+    padding:40px 0;
+
+}
+
+
+/* ==========================
+        TITLE
+========================== */
+
+.page-title{
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+}
+
+.page-subtitle{
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================
+        ANIMATION
+========================== */
+
+.fade-up{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================
+        RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .page-title{
+
+        font-size:1.8rem;
+
+    }
+
+}

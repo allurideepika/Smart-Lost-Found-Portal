@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Lost & Found Portal</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/login.css') }}">
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <div class="logo-box">
+
+        <img src="{{ url_for('static', filename='assets/images/logo.png') }}"
+             alt="Smart Lost & Found Logo"
+             class="login-logo">
+
+    </div>
+
+    <h2 class="text-center">
+        Smart Lost & Found Portal
+    </h2>
+
+    <p class="portal-text text-center">
+        College Campus Lost & Found System
+    </p>
+
+    <!-- Login Form -->
+    <form id="loginForm" method="POST" action="/">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Login As
+            </label>
+
+            <select
+                id="role"
+                name="role"
+                class="form-select">
+
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                College Email
+            </label>
+
+            <div class="input-group">
+
+                <span class="input-group-text">
+                    <i class="bi bi-envelope"></i>
+                </span>
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter College Email"
+                    required>
+
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Password
+            </label>
+
+            <div class="input-group">
+
+                <span class="input-group-text">
+                    <i class="bi bi-lock"></i>
+                </span>
+
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Enter Password"
+                    required>
+
+                <button
+                    class="btn btn-light"
+                    type="button"
+                    id="togglePassword">
+
+                    <i class="bi bi-eye"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <button
+            class="login-btn"
+            type="submit">
+
+            Login
+            <i class="bi bi-arrow-right ms-2"></i>
+
+        </button>
+
+    </form>
+
+    <div class="footer-text">
+
+        Need help? Contact Campus Administration.
+
+        <br>
+
+        <a href="mailto:admin@svecw.edu.in">
+            admin@svecw.edu.in
+        </a>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+</html>

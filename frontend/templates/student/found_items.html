@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found Items</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Found Items</h2>
+
+    <div class="row">
+
+        {% if found_items %}
+
+            {% for item in found_items %}
+
+            <div class="col-md-4 mb-4">
+
+                <div class="card shadow h-100">
+
+                    {% if item.image %}
+
+                    <img src="{{ url_for('static', filename='assets/uploads/' + item.image) }}"
+                         class="card-img-top"
+                         style="height:220px; object-fit:cover;">
+
+                    {% else %}
+
+                    <img src="{{ url_for('static', filename='assets/images/no-image.png') }}"
+                         class="card-img-top"
+                         style="height:220px; object-fit:cover;">
+
+                    {% endif %}
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            {{ item.item_name }}
+                        </h5>
+
+                        <p>
+                            <strong>Category:</strong>
+                            {{ item.category }}
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong>
+                            {{ item.location }}
+                        </p>
+
+                        <p>
+                            <strong>Date:</strong>
+                            {{ item.found_date }}
+                        </p>
+
+                        <p>
+                            <strong>Reported By:</strong>
+                            {{ item.user.name }}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+
+                            {% if item.status == "Pending" %}
+
+                            <span class="badge bg-warning">
+                                Pending
+                            </span>
+
+                            {% elif item.status == "Matched" %}
+
+                            <span class="badge bg-success">
+                                Matched
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-primary">
+                                Returned
+                            </span>
+
+                            {% endif %}
+
+                        </p>
+
+                        <a href="/student/view/found/{{ item.found_id }}"
+                           class="btn btn-primary w-100">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+        <div class="alert alert-info">
+            No found items available.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

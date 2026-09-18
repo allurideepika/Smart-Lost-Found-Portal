@@ -1,0 +1,63 @@
+.content h2{
+
+font-weight:700;
+
+color:#1E3A8A;
+
+}
+
+.match-card{
+
+background:white;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.item-box{
+
+padding:25px;
+
+background:#F8FAFC;
+
+border-radius:15px;
+
+margin-top:20px;
+
+}
+
+.item-box{
+
+font-size:50px;
+
+}
+
+.item-box h4{
+
+margin-top:15px;
+
+font-weight:700;
+
+}
+
+.item-box p{
+
+color:gray;
+
+margin:0;
+
+}
+
+.btn{
+
+padding:10px 25px;
+
+border-radius:12px;
+
+font-weight:600;
+
+}

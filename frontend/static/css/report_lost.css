@@ -1,0 +1,207 @@
+/* ===================================
+   REPORT LOST ITEM PAGE
+=================================== */
+
+body{
+    background:#f4f7fc;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#fff !important;
+    padding:15px 0;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.navbar-brand{
+    font-weight:700;
+    font-size:1.4rem;
+}
+
+/* Form Card */
+
+.report-card{
+
+    background:#fff;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.report-card h2{
+
+    color:#2563EB;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+
+}
+
+.form-label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+.form-control,
+.form-select{
+
+    height:52px;
+
+    border-radius:14px;
+
+    border:1px solid #dcdfe6;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 .2rem rgba(37,99,235,.15);
+
+}
+
+textarea.form-control{
+
+    height:120px;
+
+    resize:none;
+
+    padding-top:12px;
+
+}
+
+/* File Upload */
+
+input[type="file"]{
+
+    padding:12px;
+
+}
+
+/* Button */
+
+.btn-primary{
+
+    background:#2563EB;
+
+    border:none;
+
+    height:55px;
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .report-card{
+
+        padding:25px;
+
+        margin:20px;
+
+    }
+
+}
+
+/* ===========================
+   IMAGE UPLOAD
+=========================== */
+
+.upload-box{
+
+    border:2px dashed #2563EB;
+
+    border-radius:20px;
+
+    background:#f8fbff;
+
+    padding:45px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.upload-box:hover{
+
+    background:#eef5ff;
+
+}
+
+.upload-icon{
+
+    font-size:60px;
+
+    color:#2563EB;
+
+    margin-bottom:20px;
+
+}
+
+.upload-box h5{
+
+    font-weight:600;
+
+}
+
+.upload-box p{
+
+    color:#6B7280;
+
+}
+
+.preview-container{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+#previewImage{
+
+    display:none;
+
+    width:250px;
+
+    border-radius:16px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}

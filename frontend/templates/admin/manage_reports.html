@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Reports</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/manage_reports.css') }}">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+{% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show m-3">
+
+        {{ message }}
+
+        <button
+        class="btn-close"
+        data-bs-dismiss="alert">
+        </button>
+
+    </div>
+
+    {% endfor %}
+
+{% endif %}
+{% endwith %}
+
+<div class="d-flex">
+
+<div class="sidebar">
+
+    <h3>Smart L&F</h3>
+
+    <a href="/admin/dashboard">
+        <i class="bi bi-speedometer2"></i>
+        Dashboard
+    </a>
+
+    <a href="/admin/manage_users">
+        <i class="bi bi-people"></i>
+        Manage Users
+    </a>
+
+    <a href="/admin/manage_reports" class="active">
+        <i class="bi bi-box-seam"></i>
+        Manage Reports
+    </a>
+
+    <a href="/admin/matches">
+        <i class="bi bi-search"></i>
+        Matches
+    </a>
+
+    <!--a href="/admin/settings">
+        <i class="bi bi-gear"></i>
+        Settings
+    </a-->
+
+    <a href="/admin/claims">
+        <i class="bi bi-file-earmark-check"></i>
+        Claims
+    </a>
+
+    <a href="/logout">
+        <i class="bi bi-box-arrow-right"></i>
+        Logout
+    </a>
+
+</div>
+<div class="content">
+
+<h2 class="mb-4">
+
+Manage Reports
+
+</h2>
+
+<div class="card p-4">
+
+<table class="table table-hover align-middle">
+
+<thead>
+
+<tr>
+
+<th>Image</th>
+
+<th>Student</th>
+
+<th>Item</th>
+
+<th>Type</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in lost_reports %}
+
+<tr>
+
+<td>
+
+{% if item.image %}
+
+<img src="{{ url_for('static',
+filename='assets/uploads/' + item.image) }}"
+width="60"
+height="60"
+class="rounded">
+
+{% else %}
+
+No Image
+
+{% endif %}
+
+</td>
+
+<td>
+
+{{ item.user.name }}
+
+</td>
+
+<td>
+
+{{ item.item_name }}
+
+</td>
+
+<td>
+
+Lost
+
+</td>
+
+<td>
+
+{% if item.status=="Matched" %}
+
+<span class="badge bg-success">
+
+{{ item.status }}
+
+</span>
+
+{% elif item.status=="Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+{{ item.status }}
+
+</span>
+
+{% elif item.status=="Returned" %}
+
+<span class="badge bg-primary">
+
+{{ item.status }}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="/admin/delete_lost/{{ item.lost_id }}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Delete this report?')">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+
+
+{% for item in found_reports %}
+
+<tr>
+
+<td>
+
+{% if item.image %}
+
+<img src="{{ url_for('static',
+filename='assets/uploads/' + item.image) }}"
+width="60"
+height="60"
+class="rounded">
+
+{% else %}
+
+No Image
+
+{% endif %}
+
+</td>
+
+<td>
+
+{{ item.user.name }}
+
+</td>
+
+<td>
+
+{{ item.item_name }}
+
+</td>
+
+<td>
+
+Found
+
+</td>
+
+<td>
+
+{% if item.status=="Matched" %}
+
+<span class="badge bg-success">
+
+{{ item.status }}
+
+</span>
+
+{% elif item.status=="Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+{{ item.status }}
+
+</span>
+
+{% elif item.status=="Returned" %}
+
+<span class="badge bg-primary">
+
+{{ item.status }}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="/admin/delete_found/{{ item.found_id }}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Delete this report?')">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
